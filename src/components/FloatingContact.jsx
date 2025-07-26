@@ -7,7 +7,7 @@ const FloatingContact = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {isOpen && (
-        <div className="absolute bottom-full right-0 mb-4 w-80 bg-white rounded-lg shadow-xl p-6 animate-fade-in">
+        <div className="absolute bottom-full right-0 mb-4 w-80 bg-white rounded-lg shadow-xl p-6 animate-fade-in text-black">
           <button
             onClick={() => setIsOpen(false)}
             className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors"
@@ -22,7 +22,7 @@ const FloatingContact = () => {
               href="tel:+919773754227"
               className="flex items-center space-x-3 p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors group"
             >
-              <div className="bg-primary-500 text-white p-2 rounded-full group-hover:bg-primary-600 transition-colors">
+              <div className="bg-primary-500 text-black p-2 rounded-full group-hover:bg-primary-600 transition-colors">
                 <MdPhone size={20} />
               </div>
               <div>
@@ -67,7 +67,7 @@ const FloatingContact = () => {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-primary-600 text-white p-4 rounded-full shadow-lg hover:bg-primary-700 transition-colors"
+        className="bg-green-600 text-black p-4 rounded-full shadow-lg hover:bg-primary-700 transition-colors"
       >
         <MdPhone size={24} />
       </button>

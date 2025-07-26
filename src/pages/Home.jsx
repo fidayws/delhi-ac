@@ -11,39 +11,9 @@ import {
 } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import GoogleReviews from '../components/GoogleReviews';
+import ServiceCategories from '../components/ServiceCategories';
 
 const Home = () => {
-  const services = [
-    {
-      icon: MdThermostat,
-      title: "AC Installation",
-      description: "Professional installation of all AC types with warranty",
-      features: ["Free site survey", "Same day installation", "1 year warranty"],
-      image: "https://images.unsplash.com/photo-1581146036131-f5f9cf160d47?q=80&w=2342&auto=format&fit=crop"
-    },
-    {
-      icon: MdBuildCircle,
-      title: "AC Repair",
-      description: "Quick and reliable AC repair services 24/7",
-      features: ["Emergency service", "Genuine parts", "30-day guarantee"],
-      image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=2338&auto=format&fit=crop"
-    },
-    {
-      icon: MdSecurity,
-      title: "AC Maintenance",
-      description: "Regular maintenance to keep your AC running efficiently",
-      features: ["Deep cleaning", "Gas refilling", "Performance check"],
-      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2340&auto=format&fit=crop"
-    },
-    {
-      icon: MdAccessTime,
-      title: "AMC Services",
-      description: "Annual maintenance contracts for worry-free cooling",
-      features: ["Priority service", "Cost savings", "Regular checkups"],
-      image: "https://images.unsplash.com/photo-1631545805172-978bc4780e51?q=80&w=2340&auto=format&fit=crop"
-    }
-  ];
-
   const features = [
     "Licensed & Insured Technicians",
     "24/7 Emergency Service",
@@ -89,7 +59,7 @@ const Home = () => {
                 to="/services"
                 className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-4 bg-gray-100 text-gray-900 rounded-lg shadow-lg hover:bg-white hover:text-primary-600 transition-all text-base md:text-lg font-semibold transform hover:scale-105 hover:ring-2 hover:ring-offset-2 hover:ring-primary-500"
               >
-                Our Services
+                All Services
                 <MdArrowForward className="ml-2" size={24} />
               </Link>
             </div>
@@ -113,54 +83,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-12 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-              Comprehensive AC solutions for residential and commercial spaces
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                <div className="relative h-48 md:h-56">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <service.icon className="absolute bottom-4 right-4 text-white" size={32} />
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-gray-700">
-                        <MdCheckCircle className="text-primary-500 mr-2 flex-shrink-0" size={20} />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Link
-                    to={`/services/${service.title.toLowerCase().replace(' ', '-')}`}
-                    className="inline-flex items-center text-primary-500 hover:text-primary-600 font-semibold"
-                  >
-                    Learn More
-                    <MdArrowForward className="ml-2" size={20} />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServiceCategories />
 
       {/* Features Section */}
       <section className="py-12 md:py-20 bg-white">

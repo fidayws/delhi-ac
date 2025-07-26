@@ -64,7 +64,7 @@ const About = () => {
         <div className="container relative z-10 mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-              About CoolTech Services
+              About Delhi Air Conditioner Services
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Delhi NCR's most trusted air conditioning service provider with over 10 years of experience 
