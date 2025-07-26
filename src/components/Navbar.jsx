@@ -86,31 +86,32 @@ const Navbar = () => {
       }`}
     >
       {/* Top Bar */}
-      <div className={`bg-gray-900 text-white py-2 text-sm`}>
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div className={`bg-gray-900 text-white py-1.5 sm:py-2 text-sm`}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-2">
             <div className="flex items-center text-center sm:text-left w-full sm:w-auto">
-              <MdLocationPin size={16} className="mr-2 hidden sm:block" />
-              <span className="text-xs sm:text-sm">
+              <MdLocationPin size={14} className="mr-1 sm:mr-2 hidden sm:block" />
+              <span className="text-xs sm:text-sm truncate">
                 Shop no 789, Block k2, Tara Chand Colony, Mahipalpur
               </span>
             </div>
-            <div className="flex items-center space-x-4 w-full sm:w-auto justify-center sm:justify-end">
+            <div className="flex items-center space-x-3 sm:space-x-4 w-full sm:w-auto justify-center sm:justify-end">
               <a
                 href="https://wa.me/919773754227"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center hover:text-green-400 transition-colors text-xs sm:text-sm"
               >
-                <MdWhatsapp size={16} className="mr-1" />
-                WhatsApp
+                <MdWhatsapp size={14} className="mr-1" />
+                <span className="hidden xs:inline">WhatsApp</span>
+                <span className="xs:hidden">WA</span>
               </a>
               <a
                 href="tel:+919773754227"
                 className="flex items-center hover:text-primary-400 transition-colors text-xs sm:text-sm"
               >
-                <MdPhone size={16} className="mr-1" />
-                +91-97737 54227
+                <MdPhone size={14} className="mr-1" />
+                <span className="whitespace-nowrap">+91-97737 54227</span>
               </a>
             </div>
           </div>
@@ -120,28 +121,28 @@ const Navbar = () => {
       {/* Main Navbar */}
       <nav
         className={`transition-all duration-300 ${
-          isScrolled ? "py-2 bg-white" : "py-4 bg-transparent"
+          isScrolled ? "py-2 bg-white" : "py-3 sm:py-4 bg-transparent"
         }`}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
-              <div className={`bg-primary-600 p-2 rounded-lg`}>
-                <span className="font-bold text-xl text-white">AC</span>
+            <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
+              <div className={`bg-primary-600 p-1.5 sm:p-2 rounded-lg`}>
+                <span className="font-bold text-lg sm:text-xl text-white">AC</span>
               </div>
-              <div>
+              <div className="min-w-0">
                 <h1
-                  className={`font-bold text-xl ${
+                  className={`font-bold text-lg sm:text-xl ${
                     isScrolled ? "text-gray-900" : "text-white"
-                  } drop-shadow-md`}
+                  } drop-shadow-md truncate`}
                 >
                   Delhi Air Conditioner
                 </h1>
                 <p
                   className={`text-xs ${
                     isScrolled ? "text-gray-600" : "text-gray-200"
-                  }`}
+                  } hidden sm:block`}
                 >
                   Delhi's Trusted AC Experts
                 </p>
@@ -250,14 +251,14 @@ const Navbar = () => {
 
               <a
                 href="tel:+919773754227"
-                className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium shadow-md transition-all duration-300 ${
+                className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 rounded-lg font-medium shadow-md transition-all duration-300 ${
                   isScrolled
                     ? "bg-primary-600 text-black hover:bg-primary-700"
                     : "bg-white text-primary-600 hover:bg-gray-100 shadow-lg"
                 }`}
               >
-                <MdPhone size={20} />
-                <span className="font-semibold">Call Now</span>
+                <MdPhone size={18} />
+                <span className="font-semibold text-sm sm:text-base">Call Now</span>
               </a>
             </div>
 
@@ -271,7 +272,7 @@ const Navbar = () => {
               }`}
               aria-label="Toggle menu"
             >
-              {isOpen ? <HiX size={28} /> : <HiMenu size={28} />}
+              {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
             </button>
           </div>
         </div>
@@ -279,13 +280,13 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <div
           ref={mobileMenuRef}
-          className={`md:hidden transition-all duration-300 overflow-hidden bg-white ${
+          className={`md:hidden transition-all duration-300 overflow-hidden bg-white shadow-lg ${
             isOpen ? "h-auto" : "h-0"
           }`}
           style={{ maxHeight: isOpen ? (isMobileServicesOpen ? '70vh' : '50vh') : '0' }}
         >
-          <div className="container mx-auto px-4 py-2 overflow-y-auto">
-            <div className="flex flex-col space-y-3">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 overflow-y-auto">
+            <div className="flex flex-col space-y-4">
               <Link
                 to="/"
                 className={`font-semibold py-2 ${
