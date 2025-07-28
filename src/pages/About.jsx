@@ -6,13 +6,13 @@ const About = () => {
   const achievements = [
     {
       icon: MdGroup,
-      number: "500+",
+      number: "2500+",
       label: "Happy Customers",
       description: "Satisfied customers across Delhi NCR"
     },
     {
       icon: MdAccessTime,
-      number: "10+",
+      number: "20+",
       label: "Years Experience",
       description: "Decade of reliable AC service"
     },
@@ -84,7 +84,7 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-gray-600">
                 <p>
-                  Founded in 2014, CoolTech Services began as a small family business with a simple mission: 
+                  Founded in 2000, CoolTech Services began as a small family business with a simple mission: 
                   to provide reliable and affordable air conditioning services to the people of Delhi NCR. 
                   What started with just two technicians and a van has grown into the region's most trusted AC service provider.
                 </p>

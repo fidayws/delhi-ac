@@ -4,42 +4,19 @@ import {
   MdEmail, 
   MdLocationPin, 
   MdAccessTime, 
-  MdSend, 
   MdWhatsapp,
   MdCheckCircle,
+  MdStar,
   MdAir,
   MdAcUnit,
-  MdSupport,
-  MdQuestionAnswer,
-  MdStar
+  MdSupport
 } from 'react-icons/md';
 import { motion } from 'framer-motion';
+import ContactForm from '../components/ContactForm';
+import FAQ from '../components/FAQ';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: 'AC Repair',
-    message: ''
-  });
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const [activeTab, setActiveTab] = useState('form');
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Form submission logic would go here
-    setFormSubmitted(true);
-    setTimeout(() => setFormSubmitted(false), 5000);
-  };
 
   const contactInfo = [
     {
@@ -88,24 +65,7 @@ const Contact = () => {
     "Lajpat Nagar", "Delhi Cantonment", "RK Puram", "Chanakyapuri"
   ];
 
-  const faqs = [
-    {
-      question: "How quickly can you respond to an emergency AC service?",
-      answer: "We offer 24/7 emergency services and typically respond within 1-2 hours for urgent cases within Delhi NCR."
-    },
-    {
-      question: "What is included in your regular AC service?",
-      answer: "Our regular AC service includes cleaning of filters, condenser coil, evaporator coil, checking refrigerant levels, inspecting electrical components, and testing overall performance."
-    },
-    {
-      question: "Do you provide AMC (Annual Maintenance Contract) services?",
-      answer: "Yes, we offer comprehensive AMC packages that include regular maintenance visits, priority service, and discounted rates on repairs and parts."
-    },
-    {
-      question: "How much does AC gas refilling cost?",
-      answer: "AC gas refilling costs depend on your AC model and the type of gas required. Contact us for a personalized quote based on your specific unit."
-    }
-  ];
+
 
   const testimonials = [
     {
@@ -136,7 +96,7 @@ const Contact = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-primary-700 text-black py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
         <div className="container mx-auto px-4">
           <motion.div 
             className="max-w-3xl mx-auto text-center"
@@ -146,13 +106,13 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4 ">Contact Delhi's AC Experts</h1>
-            <p className="text-lg md:text-xl text-primary-100 mb-8">
+            <p className="text-lg md:text-xl text-blue-100 mb-8">
               We're ready to solve your air conditioning needs 24/7 with prompt, professional service
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a 
                 href="tel:+919773754227"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 rounded-lg hover:bg-primary-50 transition-all text-lg font-semibold shadow-lg"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-all text-lg font-semibold shadow-lg"
               >
                 <MdPhone className="mr-2" size={24} />
                 Call Now
@@ -161,7 +121,7 @@ const Contact = () => {
                 href="https://wa.me/919773754227"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 bg-primary-800 text-green-500 rounded-lg hover:bg-primary-900 transition-all text-lg font-semibold shadow-lg"
+                className="inline-flex items-center justify-center px-8 py-4 bg-blue-800 text-green-500 rounded-lg hover:bg-blue-900 transition-all text-lg font-semibold shadow-lg"
               >
                 <MdWhatsapp className="mr-2" size={24} />
                 WhatsApp
@@ -187,7 +147,7 @@ const Contact = () => {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="text-primary-600 mb-4 bg-primary-50 p-3 rounded-full inline-block">{info.icon}</div>
+                <div className="text-blue-600 mb-4 bg-blue-50 p-3 rounded-full inline-block">{info.icon}</div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{info.title}</h3>
                 <p className="text-gray-700 font-medium mb-2">{info.content}</p>
                 <p className="text-sm text-gray-500">{info.description}</p>
@@ -203,159 +163,31 @@ const Contact = () => {
           <div className="flex flex-col lg:flex-row gap-10">
             {/* Contact Form */}
             <div className="lg:w-1/2">
-              <motion.div 
-                className="bg-white rounded-xl shadow-lg p-8 border border-gray-100"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="mb-6">
-                  <div className="flex border-b">
-                    <button 
-                      className={`px-4 py-2 text-lg font-medium ${activeTab === 'form' ? 'text-primary-600 border-b-2 border-primary-600' : 'text-gray-500'}`}
-                      onClick={() => setActiveTab('form')}
-                    >
-                      Send Message
-                    </button>
-                    <button 
-                      className={`px-4 py-2 text-lg font-medium ${activeTab === 'faq' ? 'text-primary-600 border-b-2 border-primary-600' : 'text-gray-500'}`}
-                      onClick={() => setActiveTab('faq')}
-                    >
-                      FAQs
-                    </button>
-                  </div>
+              <div className="mb-6">
+                <div className="flex border-b bg-white rounded-t-xl">
+                  <button 
+                    className={`px-4 py-2 text-lg font-medium ${activeTab === 'form' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500'}`}
+                    onClick={() => setActiveTab('form')}
+                  >
+                    Send Message
+                  </button>
+                  <button 
+                    className={`px-4 py-2 text-lg font-medium ${activeTab === 'faq' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500'}`}
+                    onClick={() => setActiveTab('faq')}
+                  >
+                    FAQs
+                  </button>
                 </div>
-                
-                {activeTab === 'form' ? (
-                  <>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-                    
-                    {formSubmitted ? (
-                      <div className="bg-green-50 p-4 rounded-lg flex items-center text-green-700 mb-6">
-                        <MdCheckCircle className="mr-2" size={24} />
-                        <p>Thank you! Your message has been sent. We'll contact you shortly.</p>
-                      </div>
-                    ) : null}
-                    
-                    <form onSubmit={handleSubmit}>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div>
-                          <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name</label>
-                          <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
-                            placeholder="Your Name"
-                            required
-                          />
-                        </div>
-                        
-                        <div>
-                          <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">Phone</label>
-                          <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
-                            placeholder="Your Phone Number"
-                            required
-                          />
-                        </div>
-                      </div>
-                      
-                      <div className="mb-4">
-                        <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
-                          placeholder="Your Email"
-                          required
-                        />
-                      </div>
-                      
-                      <div className="mb-4">
-                        <label htmlFor="service" className="block text-gray-700 font-medium mb-2">Service Required</label>
-                        <select
-                          id="service"
-                          name="service"
-                          value={formData.service}
-                          onChange={handleChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
-                          required
-                        >
-                          <option value="AC Repair">AC Repair</option>
-                          <option value="AC Service">AC Service</option>
-                          <option value="AC Installation">AC Installation</option>
-                          <option value="AC Gas Filling">AC Gas Filling</option>
-                          <option value="AMC">Annual Maintenance Contract</option>
-                          <option value="Other">Other</option>
-                        </select>
-                      </div>
-                      
-                      <div className="mb-6">
-                        <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
-                        <textarea
-                          id="message"
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          rows="4"
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
-                          placeholder="Please describe your requirement..."
-                          required
-                        ></textarea>
-                      </div>
-                      
-                      <button
-                        type="submit"
-                        className="w-full bg-primary-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-primary-700 transition-colors flex items-center justify-center"
-                      >
-                        <MdSend className="mr-2" size={20} />
-                        Send Message
-                      </button>
-                    </form>
-                  </>
-                ) : (
-                  <div className="space-y-6">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-                    
-                    {faqs.map((faq, index) => (
-                      <motion.div 
-                        key={index}
-                        className="border-b border-gray-200 pb-4 last:border-0"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                      >
-                        <h3 className="font-semibold text-gray-800 text-lg mb-2 flex items-start">
-                          <MdQuestionAnswer className="text-primary-600 mr-2 mt-1 flex-shrink-0" size={20} />
-                          {faq.question}
-                        </h3>
-                        <p className="text-gray-600 ml-7">{faq.answer}</p>
-                      </motion.div>
-                    ))}
-                    
-                    <div className="pt-4">
-                      <p className="text-gray-500 text-center">Don't see your question? Contact us directly!</p>
-                      <button
-                        onClick={() => setActiveTab('form')}
-                        className="mt-4 w-full bg-primary-50 text-primary-700 py-3 px-6 rounded-lg text-lg font-medium hover:bg-primary-100 transition-colors flex items-center justify-center"
-                      >
-                        Ask Your Question
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </motion.div>
+              </div>
+              
+              {activeTab === 'form' ? (
+                <ContactForm showTitle={false} />
+              ) : (
+                <FAQ 
+                  showTitle={false} 
+                  onAskQuestion={() => setActiveTab('form')} 
+                />
+              )}
             </div>
             
             {/* Map & Hours */}
@@ -381,7 +213,7 @@ const Contact = () => {
                 
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                    <MdAccessTime className="mr-2 text-primary-600" size={24} />
+                    <MdAccessTime className="mr-2 text-blue-600" size={24} />
                     Business Hours
                   </h3>
                   <div className="grid grid-cols-2 gap-2">
@@ -432,10 +264,10 @@ const Contact = () => {
             {serviceAreas.map((area, index) => (
               <motion.div
                 key={index}
-                className="bg-primary-50 rounded-lg p-3 text-center text-primary-700 font-medium hover:bg-primary-100 transition-colors"
+                className="bg-blue-50 rounded-lg p-3 text-center text-blue-700 font-medium hover:bg-blue-100 transition-colors"
                 variants={fadeIn}
               >
-                <MdLocationPin className="inline-block mr-1 text-primary-600" />
+                <MdLocationPin className="inline-block mr-1 text-blue-600" />
                 {area}
               </motion.div>
             ))}
@@ -478,7 +310,7 @@ const Contact = () => {
                     <p className="font-semibold text-gray-900">{testimonial.name}</p>
                     <p className="text-sm text-gray-500">{testimonial.area}</p>
                   </div>
-                  <div className="bg-primary-50 text-primary-600 px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
                     Verified Customer
                   </div>
                 </div>
@@ -489,7 +321,7 @@ const Contact = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary-700 to-primary-800 text-black py-16">
+      <section className="bg-gradient-to-r from-blue-700 to-blue-800 text-white py-16">
         <div className="container mx-auto px-4">
           <motion.div 
             className="flex flex-col lg:flex-row items-center justify-between gap-8"
@@ -499,17 +331,17 @@ const Contact = () => {
           >
             <div className="flex-1">
               <div className="flex items-center mb-3">
-                <MdAir className="text-4xl mr-3 text-primary-300" />
-                <MdAcUnit className="text-4xl text-primary-300" />
+                <MdAir className="text-4xl mr-3 text-blue-300" />
+                <MdAcUnit className="text-4xl text-blue-300" />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Need Emergency AC Service?
               </h2>
-              <p className="text-xl text-primary-100">
+              <p className="text-xl text-blue-100">
                 Our expert technicians are available 24/7 for your emergency AC repairs. 
                 One call away from cool comfort!
               </p>
-              <div className="mt-6 flex items-center text-primary-100">
+              <div className="mt-6 flex items-center text-blue-100">
                 <MdSupport size={24} className="mr-2" />
                 <span>Average response time: 30-60 minutes</span>
               </div>
@@ -517,7 +349,7 @@ const Contact = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
                 href="tel:+919773754227"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 rounded-lg hover:bg-primary-50 transition-all text-lg font-semibold shadow-lg"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-all text-lg font-semibold shadow-lg"
               >
                 <MdPhone className="mr-2" size={24} />
                 Call Now
@@ -526,7 +358,7 @@ const Contact = () => {
                 href="https://wa.me/919773754227"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 bg-primary-900 text-green-500 rounded-lg hover:bg-primary-950 transition-all text-lg font-semibold shadow-lg"
+                className="inline-flex items-center justify-center px-8 py-4 bg-blue-900 text-green-500 rounded-lg hover:bg-blue-950 transition-all text-lg font-semibold shadow-lg"
               >
                 <MdWhatsapp className="mr-2" size={24} />
                 WhatsApp

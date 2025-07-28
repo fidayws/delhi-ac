@@ -15,6 +15,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const mobileMenuRef = useRef(null);
+  const dropdownTimeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,6 +80,19 @@ const Navbar = () => {
 
   const isActive = (path) => location.pathname === path;
 
+  const handleMouseEnterServices = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    setIsServicesOpen(true);
+  };
+
+  const handleMouseLeaveServices = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 200); // 200ms delay for better UX
+  };
+
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -108,7 +122,7 @@ const Navbar = () => {
               </a>
               <a
                 href="tel:+919773754227"
-                className="flex items-center hover:text-primary-400 transition-colors text-xs sm:text-sm"
+                className="flex items-center hover:text-blue-400 transition-colors text-xs sm:text-sm"
               >
                 <MdPhone size={14} className="mr-1" />
                 <span className="whitespace-nowrap">+91-97737 54227</span>
@@ -128,7 +142,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
-              <div className={`bg-primary-600 p-1.5 sm:p-2 rounded-lg`}>
+              <div className={`bg-blue-600 p-1.5 sm:p-2 rounded-lg`}>
                 <span className="font-bold text-lg sm:text-xl text-white">AC</span>
               </div>
               <div className="min-w-0">
@@ -156,11 +170,11 @@ const Navbar = () => {
                 className={`font-semibold transition-colors ${
                   isActive("/")
                     ? isScrolled
-                      ? "text-primary-600"
-                      : "text-primary-400"
+                      ? "text-blue-600"
+                      : "text-white"
                     : isScrolled
-                    ? "text-gray-700 hover:text-primary-600"
-                    : "text-white hover:text-primary-400"
+                    ? "text-gray-700 hover:text-blue-600"
+                    : "text-white hover:text-blue-400"
                 }`}
               >
                 Home
@@ -169,14 +183,14 @@ const Navbar = () => {
               {/* Services Dropdown */}
               <div
                 className="relative static"
-                onMouseEnter={() => setIsServicesOpen(true)}
-                onMouseLeave={() => setIsServicesOpen(false)}
+                onMouseEnter={handleMouseEnterServices}
+                onMouseLeave={handleMouseLeaveServices}
               >
                 <button
                   className={`flex items-center space-x-1 font-semibold transition-colors ${
                     isScrolled
-                      ? "text-gray-700 hover:text-primary-600"
-                      : "text-white hover:text-primary-400"
+                      ? "text-gray-700 hover:text-blue-600"
+                      : "text-white hover:text-blue-400"
                   }`}
                 >
                   <span>Services</span>
@@ -187,7 +201,7 @@ const Navbar = () => {
                     <div className="container mx-auto px-4 max-h-[80vh] overflow-y-auto">
                       <Link
                         to="/services"
-                        className="block px-4 py-3 text-gray-800 hover:bg-primary-50 hover:text-primary-600 transition-colors font-bold text-xl border-b border-gray-200 mb-4 text-center"
+                        className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors font-bold text-xl border-b border-gray-200 mb-4 text-center"
                         onClick={() => setIsServicesOpen(false)}
                       >
                         All Services
@@ -196,7 +210,7 @@ const Navbar = () => {
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                         {Object.entries(servicesByCategory).map(([category, categoryServices]) => (
                           <div key={category} className="space-y-2 min-w-0">
-                            <h3 className="font-bold text-primary-600 text-sm uppercase tracking-wide border-b-2 border-primary-300 pb-2 text-left whitespace-nowrap">
+                            <h3 className="font-bold text-blue-600 text-sm uppercase tracking-wide border-b-2 border-blue-300 pb-2 text-left whitespace-nowrap">
                               {category}
                             </h3>
                             <div className="space-y-1">
@@ -204,7 +218,7 @@ const Navbar = () => {
                                 <Link
                                   key={service.path}
                                   to={service.path}
-                                  className="block px-2 py-1.5 text-xs text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors rounded-md"
+                                  className="block px-2 py-1.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors rounded-md"
                                   onClick={() => setIsServicesOpen(false)}
                                 >
                                   {service.name}
@@ -224,11 +238,11 @@ const Navbar = () => {
                 className={`font-semibold transition-colors ${
                   isActive("/about")
                     ? isScrolled
-                      ? "text-primary-600"
-                      : "text-primary-400"
+                      ? "text-blue-600"
+                      : "text-blue-400"
                     : isScrolled
-                    ? "text-gray-700 hover:text-primary-600"
-                    : "text-white hover:text-primary-400"
+                    ? "text-gray-700 hover:text-blue-600"
+                    : "text-white hover:text-blue-400"
                 }`}
               >
                 About
@@ -239,11 +253,11 @@ const Navbar = () => {
                 className={`font-semibold transition-colors ${
                   isActive("/contact")
                     ? isScrolled
-                      ? "text-primary-600"
-                      : "text-primary-400"
+                      ? "text-blue-600"
+                      : "text-blue-400"
                     : isScrolled
-                    ? "text-gray-700 hover:text-primary-600"
-                    : "text-white hover:text-primary-400"
+                    ? "text-gray-700 hover:text-blue-600"
+                    : "text-white hover:text-blue-400"
                 }`}
               >
                 Contact
@@ -253,8 +267,8 @@ const Navbar = () => {
                 href="tel:+919773754227"
                 className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 rounded-lg font-medium shadow-md transition-all duration-300 ${
                   isScrolled
-                    ? "bg-primary-600 text-black hover:bg-primary-700"
-                    : "bg-white text-primary-600 hover:bg-gray-100 shadow-lg"
+                    ? "bg-blue-600 text-black hover:bg-blue-700"
+                    : "bg-white text-blue-600 hover:bg-gray-100 shadow-lg"
                 }`}
               >
                 <MdPhone size={18} />
@@ -290,7 +304,7 @@ const Navbar = () => {
               <Link
                 to="/"
                 className={`font-semibold py-2 ${
-                  isActive("/") ? "text-primary-600" : "text-gray-700"
+                  isActive("/") ? "text-blue-600" : "text-gray-700"
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -301,7 +315,7 @@ const Navbar = () => {
                 <button
                   onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                   className={`flex items-center justify-between w-full font-semibold ${
-                    isActive("/services") ? "text-primary-600" : "text-gray-700"
+                    isActive("/services") ? "text-blue-600" : "text-gray-700"
                   }`}
                 >
                   <span>Services</span>
@@ -318,7 +332,7 @@ const Navbar = () => {
                 }`}>
                   <Link
                     to="/services"
-                    className="block py-2 px-3 mb-2 bg-gray-50 rounded font-medium text-primary-600"
+                    className="block py-2 px-3 mb-2 bg-gray-50 rounded font-medium text-blue-600"
                     onClick={() => setIsOpen(false)}
                   >
                     View All Services
@@ -327,13 +341,13 @@ const Navbar = () => {
                   <div className="space-y-3 pl-2 overflow-y-auto pb-4" style={{ maxHeight: '40vh' }}>
                     {Object.entries(servicesByCategory).map(([category, categoryServices]) => (
                       <div key={category} className="space-y-1 pb-2 border-b border-gray-100 last:border-0">
-                        <h4 className="font-medium text-primary-600 text-sm">{category}</h4>
+                        <h4 className="font-medium text-blue-600 text-sm">{category}</h4>
                         <div className="pl-2 space-y-1">
                           {categoryServices.map((service) => (
                             <Link
                               key={service.path}
                               to={service.path}
-                              className="block text-gray-600 hover:text-primary-600 text-sm py-1"
+                              className="block text-gray-600 hover:text-blue-600 text-sm py-1"
                               onClick={() => setIsOpen(false)}
                             >
                               {service.name}
@@ -349,7 +363,7 @@ const Navbar = () => {
               <Link
                 to="/about"
                 className={`font-semibold py-2 ${
-                  isActive("/about") ? "text-primary-600" : "text-gray-700"
+                  isActive("/about") ? "text-blue-600" : "text-gray-700"
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -359,7 +373,7 @@ const Navbar = () => {
               <Link
                 to="/contact"
                 className={`font-semibold py-2 ${
-                  isActive("/contact") ? "text-primary-600" : "text-gray-700"
+                  isActive("/contact") ? "text-blue-600" : "text-gray-700"
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -369,7 +383,7 @@ const Navbar = () => {
               <div className="pt-2 pb-1">
                 <a
                   href="tel:+919773754227"
-                  className="flex items-center justify-center space-x-2 bg-primary-600 text-white py-3 rounded-lg hover:bg-primary-700 transition-colors"
+                  className="flex items-center justify-center space-x-2 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   <MdPhone size={20} />
                   <span className="font-semibold">Call Now</span>

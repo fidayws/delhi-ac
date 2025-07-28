@@ -22,8 +22,8 @@ const Footer = () => {
     { name: 'Contact', path: '/contact' },
     { name: 'Book Service', path: '/contact' },
     { name: 'Careers', path: '/careers' },
-    { name: 'Privacy Policy', path: '/privacy' },
-    { name: 'Terms of Service', path: '/terms' },
+    { name: 'Privacy Policy', path: '/privacy-policy' },
+    { name: 'Terms of Service', path: '/terms-of-service' },
   ];
 
   return (
@@ -184,14 +184,14 @@ const Footer = () => {
               © {new Date().getFullYear()} Delhi Air Conditioner. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center space-x-3 sm:space-x-4">
-              <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm">
+              <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm">
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm">
+              <Link to="/terms-of-service" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm">
                 Terms of Service
               </Link>
-              <Link to="/sitemap" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm">
-                Sitemap
+              <Link to="/careers" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm">
+                Careers
               </Link>
             </div>
           </div>
