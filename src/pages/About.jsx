@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdMilitaryTech, MdGroup, MdAccessTime, MdSecurity, MdCheckCircle, MdTrackChanges, MdRemoveRedEye, MdFavorite } from 'react-icons/md';
+import SEO from '../components/SEO';
 import TeamSection from '../components/TeamSection';
 
 const About = () => {
@@ -57,18 +58,67 @@ const About = () => {
     "Customer Service Excellence Award"
   ];
 
+  // About page structured data
+  const aboutStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntity": {
+      "@type": "HVAC",
+      "name": "Delhi AC Services",
+      "description": "Delhi NCR's most trusted air conditioning service provider with over 20+ years of experience in delivering quality AC solutions for homes and businesses.",
+      "foundingDate": "2000",
+      "employee": [
+        {
+          "@type": "Person",
+          "jobTitle": "Certified HVAC Technician",
+          "memberOf": {
+            "@type": "Organization", 
+            "name": "Delhi AC Services"
+          }
+        }
+      ],
+      "hasCredential": [
+        "Licensed HVAC Contractor",
+        "BEE Certified Technicians", 
+        "Manufacturer Authorized Service",
+        "ISO 9001:2015 Quality Management"
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Delhi"
+        },
+        {
+          "@type": "City", 
+          "name": "Gurgaon"
+        },
+        {
+          "@type": "City",
+          "name": "Noida"
+        }
+      ]
+    }
+  };
+
   return (
     <div className="bg-white">
+      <SEO 
+        title="About Delhi AC Services - 20+ Years of Expert AC Repair & Installation in Delhi NCR"
+        description="Learn about Delhi AC Services - Delhi NCR's most trusted air conditioning service provider since 2000. 20+ years experience, 2500+ happy customers, certified technicians, licensed HVAC contractor. Professional AC repair, installation & maintenance services."
+        keywords="about Delhi AC services, Delhi AC company, experienced AC technician Delhi, licensed HVAC contractor Delhi, certified AC repair company Delhi, AC service provider Delhi NCR, professional AC installation company Delhi, trusted AC maintenance service Delhi"
+        url="/about"
+        structuredData={aboutStructuredData}
+      />
       {/* Hero Section */}
       <section className="relative bg-white">
         <div className="container relative z-10 mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-              About Delhi Air Conditioner Services
+              About Delhi AC Services - Your Trusted AC Service Provider
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Delhi NCR's most trusted air conditioning service provider with over 10 years of experience 
-              in delivering quality AC solutions for homes and businesses.
+              Delhi NCR's most trusted air conditioning service provider with over 20+ years of experience 
+              in delivering professional AC repair, installation, and maintenance solutions for residential and commercial properties across Delhi, Gurgaon, Noida, and surrounding areas.
             </p>
           </div>
         </div>
@@ -104,12 +154,12 @@ const About = () => {
             <div className="grid grid-cols-2 gap-4">
               <img
                 src="https://images.pexels.com/photos/5691659/pexels-photo-5691659.jpeg?auto=compress&cs=tinysrgb&w=400"
-                alt="AC Service Team"
+                alt="Professional AC service team - Certified technicians providing expert air conditioner repair services in Delhi"
                 className="rounded-lg shadow-lg"
               />
               <img
                 src="https://images.pexels.com/photos/8293690/pexels-photo-8293690.jpeg?auto=compress&cs=tinysrgb&w=400"
-                alt="Professional AC Installation"
+                alt="Expert AC installation service in Delhi - Professional technician installing split air conditioner"
                 className="rounded-lg shadow-lg mt-8"
               />
             </div>

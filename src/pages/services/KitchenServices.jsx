@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdArrowForward, MdCheckCircle, MdPhone, MdWhatsapp, MdKitchen, MdOutlineKitchen } from 'react-icons/md';
+import SEO from '../../components/SEO';
 
 const KitchenServices = () => {
   const kitchenServices = [
@@ -60,8 +61,43 @@ const KitchenServices = () => {
     }
   ];
 
+  // Kitchen Services structured data
+  const kitchenServicesStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Kitchen Appliance Repair Services in Delhi",
+    "description": "Professional oven and microwave repair services in Delhi NCR. Expert technicians for all kitchen appliance brands with same-day service.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Delhi AC Services"
+    },
+    "areaServed": "Delhi NCR",
+    "serviceType": "Kitchen Appliance Service",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Kitchen Appliance Services Delhi",
+      "itemListElement": kitchenServices.map(service => ({
+        "@type": "Service",
+        "name": service.name,
+        "description": service.description,
+        "offers": {
+          "@type": "Offer",
+          "price": service.price,
+          "priceCurrency": "INR"
+        }
+      }))
+    }
+  };
+
   return (
     <div className="bg-white">
+      <SEO 
+        title="Kitchen Appliance Repair Service in Delhi - Oven & Microwave Repair | Delhi AC Services"
+        description="Professional kitchen appliance repair in Delhi NCR - oven repair, microwave repair, and maintenance services. Expert service for all brands: Samsung, LG, Whirlpool, IFB, Panasonic. Same-day service, genuine parts. Call +91-97737-54227 for kitchen appliance repair."
+        keywords="kitchen appliance repair Delhi, oven repair Delhi, microwave repair Delhi, microwave oven service Delhi, Samsung microwave repair Delhi, LG oven repair Delhi, Whirlpool kitchen appliance service Delhi, IFB oven repair Delhi, convection oven repair Delhi, built-in oven service Delhi, countertop microwave repair Delhi"
+        url="/services/kitchen-services"
+        structuredData={kitchenServicesStructuredData}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-orange-600 to-orange-700 py-20 text-white">
         <div className="container mx-auto px-4">
@@ -69,7 +105,7 @@ const KitchenServices = () => {
             <div className="bg-white/10 p-4 inline-block rounded-full mb-6">
               <MdKitchen size={40} className="text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Kitchen Appliance Repair</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Kitchen Appliance Repair Service in Delhi</h1>
             <p className="text-xl text-orange-100 mb-8">
               Expert repair services for ovens, microwaves, and other kitchen appliances
             </p>

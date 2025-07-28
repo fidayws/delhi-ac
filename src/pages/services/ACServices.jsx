@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdAcUnit, MdArrowForward, MdCheckCircle, MdPhone, MdWhatsapp } from 'react-icons/md';
+import SEO from '../../components/SEO';
 
 const ACServices = () => {
   const acServices = [
@@ -150,8 +151,43 @@ const ACServices = () => {
     }
   ];
 
+  // AC Services structured data
+  const acServicesStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AC Services & Repair in Delhi",
+    "description": "Professional AC repair, installation, maintenance, gas filling, and AMC services in Delhi NCR. Expert technicians for all AC brands with same-day service guarantee.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Delhi AC Services"
+    },
+    "areaServed": "Delhi NCR",
+    "serviceType": "HVAC Service",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AC Services Delhi",
+      "itemListElement": acServices.map(service => ({
+        "@type": "Service",
+        "name": service.name,
+        "description": service.description,
+        "offers": {
+          "@type": "Offer",
+          "price": service.price,
+          "priceCurrency": "INR"
+        }
+      }))
+    }
+  };
+
   return (
     <div className="bg-white">
+      <SEO 
+        title="AC Services & Repair in Delhi - Professional AC Installation, Gas Filling & Maintenance | Delhi AC Services"
+        description="Expert AC services in Delhi NCR - AC repair, installation, gas filling, maintenance & AMC. Available for all brands: Voltas, Daikin, LG, Samsung, Hitachi. Same-day service, genuine parts, 1-year warranty. Call +91-97737-54227 for immediate AC service."
+        keywords="AC service Delhi, air conditioner repair Delhi, AC installation Delhi, AC gas filling Delhi, AC maintenance Delhi, split AC service Delhi, window AC repair Delhi, Voltas AC service Delhi, Daikin AC repair Delhi, LG AC service Delhi, Samsung AC repair Delhi, commercial AC service Delhi, residential AC repair Delhi, emergency AC service Delhi, 24/7 AC repair Delhi, AC AMC Delhi, AC parts Delhi, branded AC service Delhi"
+        url="/services/ac-services"
+        structuredData={acServicesStructuredData}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-primary-600 py-20 text-white">
         <div className="container mx-auto px-4">
@@ -159,7 +195,7 @@ const ACServices = () => {
             <div className="bg-white/10 p-4 inline-block rounded-full mb-6">
               <MdAcUnit size={40} className="text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">AC Services & Repair</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Professional AC Services & Repair in Delhi</h1>
             <p className="text-xl text-blue-100 mb-8">
               Professional air conditioning solutions for installation, repair, maintenance, and gas refilling
             </p>

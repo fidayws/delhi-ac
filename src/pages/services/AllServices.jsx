@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdArrowForward, MdAcUnit, MdKitchen, MdWaterDrop, MdLocalLaundryService, MdOutlineKitchen, MdPhone, MdWhatsapp } from 'react-icons/md';
 import { FaTemperatureHigh } from 'react-icons/fa';
+import SEO from '../../components/SEO';
 
 const serviceCategories = [
   {
@@ -87,13 +88,44 @@ const serviceCategories = [
 export { serviceCategories };
 
 const AllServices = () => {
+  // All Services structured data
+  const allServicesStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Home Appliance Services in Delhi",
+    "description": "Comprehensive home appliance repair and maintenance services in Delhi NCR. AC, refrigerator, washing machine, water cooler, and kitchen appliance services.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Delhi AC Services"
+    },
+    "areaServed": "Delhi NCR",
+    "serviceType": "Home Appliance Service",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Home Appliance Services Delhi",
+      "itemListElement": serviceCategories.map(category => ({
+        "@type": "Service",
+        "name": category.name,
+        "description": category.description,
+        "serviceType": category.name
+      }))
+    }
+  };
+
   return (
     <div className="bg-white">
+      <SEO 
+        title="All Home Appliance Services in Delhi - AC, Refrigerator, Washing Machine Repair | Delhi AC Services"
+        description="Complete home appliance services in Delhi NCR - AC repair, refrigerator service, washing machine repair, water cooler service, kitchen appliance repair. Professional technicians for all brands. Same-day service available. Call +91-97737-54227"
+        keywords="home appliance services Delhi, appliance repair Delhi, AC repair Delhi, refrigerator service Delhi, washing machine repair Delhi, water cooler service Delhi, kitchen appliance repair Delhi, home appliance maintenance Delhi, appliance technician Delhi, multi-brand appliance service Delhi"
+        url="/services"
+        structuredData={allServicesStructuredData}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-purple-600 to-purple-700 py-18 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Home Appliance Services</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">All Home Appliance Services in Delhi</h1>
             <p className="text-xl text-primary-100 mb-8">
               Professional repair, installation, and maintenance services for all your home appliances
             </p>

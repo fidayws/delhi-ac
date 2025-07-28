@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdWork, MdPeople, MdTrendingUp, MdLocationOn, MdEmail, MdPhone, MdSchedule, MdHandshake, MdSchool, MdBuild, MdCheckCircle } from 'react-icons/md';
+import SEO from '../components/SEO';
 
 const Careers = () => {
   const benefits = [
@@ -80,15 +81,46 @@ const Careers = () => {
     }
   ];
 
+  // Careers structured data
+  const careersStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Delhi AC Services",
+      "sameAs": "https://delhiacservices.com"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Delhi",
+        "addressRegion": "Delhi",
+        "addressCountry": "IN"
+      }
+    },
+    "employmentType": "FULL_TIME",
+    "description": "Join Delhi's most trusted AC service company. We're looking for dedicated professionals in AC technician, refrigerator service engineer, and customer service roles.",
+    "datePosted": new Date().toISOString(),
+    "validThrough": new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString()
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title="Careers at Delhi AC Services - Join Our Team | AC Technician Jobs in Delhi"
+        description="Join Delhi's most trusted AC service company. Career opportunities for AC technicians, refrigerator service engineers, and customer service executives in Delhi NCR. Competitive salary, training, and growth opportunities. Apply now!"
+        keywords="AC technician jobs Delhi, HVAC jobs Delhi, refrigerator service engineer jobs Delhi, customer service jobs Delhi, appliance repair jobs Delhi, technician careers Delhi, AC service company jobs, HVAC technician vacancy Delhi, refrigerator repair jobs Delhi"
+        url="/careers"
+        structuredData={careersStructuredData}
+      />
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <MdWork size={64} className="mx-auto mb-6 text-primary-200" />
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Join Our Team
+              Careers at Delhi AC Services - Join Our Team
             </h1>
             <p className="text-xl text-primary-100 leading-relaxed">
               Build your career with Delhi's most trusted AC service company. We're looking for dedicated professionals who share our passion for excellence.

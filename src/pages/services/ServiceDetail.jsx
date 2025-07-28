@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MdArrowForward, MdCheckCircle } from 'react-icons/md';
+import SEO from '../../components/SEO';
 
 // Consolidated service data from all categories
 const allServices = [
@@ -38,6 +39,12 @@ export default function ServiceDetail() {
   if (!service) {
     return (
       <div className="container mx-auto py-16 text-center">
+        <SEO 
+          title="Service Not Found - Delhi AC Services"
+          description="The service you are looking for does not exist. Browse our complete range of AC, refrigerator, washing machine, and kitchen appliance services."
+          keywords="AC services Delhi, home appliance services Delhi, appliance repair Delhi"
+          url={`/services/${serviceId}`}
+        />
         <h2 className="text-3xl font-bold mb-4">Service Not Found</h2>
         <p className="text-gray-600 mb-8">The service you are looking for does not exist.</p>
         <Link to="/services" className="text-primary-600 font-semibold hover:underline">Back to All Services</Link>
@@ -45,8 +52,42 @@ export default function ServiceDetail() {
     );
   }
 
+  // Dynamic SEO data based on service
+  const serviceStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `${service.name} in Delhi`,
+    "description": service.description,
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Delhi AC Services"
+    },
+    "areaServed": "Delhi NCR",
+    "serviceType": service.category,
+    "offers": {
+      "@type": "Offer",
+      "price": service.price,
+      "priceCurrency": "INR"
+    },
+    "category": service.category
+  };
+
+  // Generate dynamic SEO keywords based on service
+  const generateKeywords = (service) => {
+    const baseKeywords = `${service.name} Delhi, ${service.name.toLowerCase()} service Delhi, ${service.name.toLowerCase()} repair Delhi`;
+    const categoryKeywords = service.category.toLowerCase().replace(' services', '') + ' service Delhi';
+    return `${baseKeywords}, ${categoryKeywords}, professional ${service.name.toLowerCase()} Delhi, best ${service.name.toLowerCase()} service Delhi, ${service.name.toLowerCase()} technician Delhi, emergency ${service.name.toLowerCase()} Delhi`;
+  };
+
   return (
     <div className="container mx-auto py-12">
+      <SEO 
+        title={`${service.name} in Delhi - Professional Service & Repair | Delhi AC Services`}
+        description={`Professional ${service.name.toLowerCase()} service in Delhi NCR. ${service.description} Expert technicians, genuine parts, same-day service. Call +91-97737-54227 for immediate ${service.name.toLowerCase()} service.`}
+        keywords={generateKeywords(service)}
+        url={`/services/${serviceId}`}
+        structuredData={serviceStructuredData}
+      />
       <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <img src={service.image} alt={service.name} className="w-full h-64 object-cover" />
         <div className="p-8">

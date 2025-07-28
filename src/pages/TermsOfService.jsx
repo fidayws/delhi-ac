@@ -1,16 +1,23 @@
 import React from 'react';
 import { MdGavel, MdInfo, MdContactMail, MdUpdate } from 'react-icons/md';
+import SEO from '../components/SEO';
 
 const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title="Terms of Service - Delhi AC Services | Service Terms & Conditions"
+        description="Read Delhi AC Services' terms of service and conditions. Learn about our service agreements, warranty terms, liability, and customer responsibilities. Updated January 2024."
+        keywords="Delhi AC Services terms of service, service terms and conditions, AC service terms, warranty terms, service agreement, customer terms, AC repair terms"
+        url="/terms-of-service"
+      />
       {/* Header */}
       <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <MdGavel size={64} className="mx-auto mb-6 text-blue-200" />
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Terms of Service
+              Terms of Service - Delhi AC Services
             </h1>
             <p className="text-xl text-blue-100">
               Please read these terms carefully before using our services.

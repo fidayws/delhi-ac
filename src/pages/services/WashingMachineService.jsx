@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdArrowForward, MdCheckCircle, MdPhone, MdWhatsapp, MdLocalLaundryService } from 'react-icons/md';
+import SEO from '../../components/SEO';
 
 const WashingMachineServices = () => {
   const washingMachineServices = [
@@ -60,8 +61,43 @@ const WashingMachineServices = () => {
     }
   ];
 
+  // Washing Machine Services structured data
+  const washingMachineServicesStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Washing Machine Repair Services in Delhi",
+    "description": "Professional washing machine repair and service for semi-automatic and fully automatic machines in Delhi NCR. Expert technicians for all brands.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Delhi AC Services"
+    },
+    "areaServed": "Delhi NCR",
+    "serviceType": "Washing Machine Service",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Washing Machine Services Delhi",
+      "itemListElement": washingMachineServices.map(service => ({
+        "@type": "Service",
+        "name": service.name,
+        "description": service.description,
+        "offers": {
+          "@type": "Offer",
+          "price": service.price,
+          "priceCurrency": "INR"
+        }
+      }))
+    }
+  };
+
   return (
     <div className="bg-white">
+      <SEO 
+        title="Washing Machine Repair Service in Delhi - Semi & Fully Automatic Machine Service | Delhi AC Services"
+        description="Professional washing machine repair and service in Delhi NCR for semi-automatic and fully automatic machines. Expert service for all brands: LG, Samsung, Whirlpool, IFB, Bosch. Same-day service, genuine parts. Call +91-97737-54227 for washing machine repair."
+        keywords="washing machine repair Delhi, semi automatic washing machine repair Delhi, fully automatic washing machine service Delhi, LG washing machine repair Delhi, Samsung washing machine service Delhi, Whirlpool washing machine repair Delhi, IFB washing machine service Delhi, front load washing machine repair Delhi, top load washing machine service Delhi, washing machine maintenance Delhi"
+        url="/services/washing-machine-services"
+        structuredData={washingMachineServicesStructuredData}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-purple-600 to-purple-700 py-20 text-white">
         <div className="container mx-auto px-4">
@@ -69,7 +105,7 @@ const WashingMachineServices = () => {
             <div className="bg-white/10 p-4 inline-block rounded-full mb-6">
               <MdLocalLaundryService size={40} className="text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Washing Machine Services</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Washing Machine Repair Service in Delhi</h1>
             <p className="text-xl text-purple-100 mb-8">
               Expert repair and maintenance services for all types of washing machines
             </p>

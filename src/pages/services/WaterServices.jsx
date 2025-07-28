@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdArrowForward, MdCheckCircle, MdPhone, MdWhatsapp, MdWaterDrop, MdWater } from 'react-icons/md';
+import SEO from '../../components/SEO';
 
 const WaterServices = () => {
   const waterServices = [
@@ -75,8 +76,43 @@ const WaterServices = () => {
     }
   ];
 
+  // Water Services structured data
+  const waterServicesStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Water Cooler & Dispenser Services in Delhi",
+    "description": "Professional water cooler and dispenser repair, gas filling, and maintenance services in Delhi NCR. Expert technicians for all brands with same-day service.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Delhi AC Services"
+    },
+    "areaServed": "Delhi NCR",
+    "serviceType": "Water Cooler Service",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Water Services Delhi",
+      "itemListElement": waterServices.map(service => ({
+        "@type": "Service",
+        "name": service.name,
+        "description": service.description,
+        "offers": {
+          "@type": "Offer",
+          "price": service.price,
+          "priceCurrency": "INR"
+        }
+      }))
+    }
+  };
+
   return (
     <div className="bg-white">
+      <SEO 
+        title="Water Cooler & Dispenser Repair Service in Delhi - Gas Filling & Maintenance | Delhi AC Services"
+        description="Professional water cooler and dispenser repair, gas filling, and maintenance services in Delhi NCR. Expert service for all brands: Blue Star, Voltas, Usha, Kent, Aquaguard. Same-day service, genuine parts. Call +91-97737-54227 for water cooler repair."
+        keywords="water cooler repair Delhi, water dispenser service Delhi, water cooler gas filling Delhi, water cooler maintenance Delhi, Blue Star water cooler service Delhi, Voltas water cooler repair Delhi, Kent water dispenser repair Delhi, Aquaguard service Delhi, commercial water cooler service Delhi, office water cooler repair Delhi, emergency water cooler service Delhi"
+        url="/services/water-services"
+        structuredData={waterServicesStructuredData}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-cyan-600 to-blue-600 py-20 text-white">
         <div className="container mx-auto px-4">
@@ -84,7 +120,7 @@ const WaterServices = () => {
             <div className="bg-white/10 p-4 inline-block rounded-full mb-6">
               <MdWaterDrop size={40} className="text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Water Cooler & Dispenser Services</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Water Cooler & Dispenser Repair Service in Delhi</h1>
             <p className="text-xl text-cyan-100 mb-8">
               Professional repair, maintenance, and gas filling services for all water cooling systems
             </p>

@@ -1,16 +1,23 @@
 import React from 'react';
 import { MdSecurity, MdInfo, MdContactMail, MdUpdate } from 'react-icons/md';
+import SEO from '../components/SEO';
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title="Privacy Policy - Delhi AC Services | How We Protect Your Information"
+        description="Learn about Delhi AC Services' privacy policy and how we collect, use, and protect your personal information. Your privacy is important to us. Updated January 2024."
+        keywords="Delhi AC Services privacy policy, privacy policy, data protection, information privacy, customer privacy, AC service privacy"
+        url="/privacy-policy"
+      />
       {/* Header */}
       <div className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <MdSecurity size={64} className="mx-auto mb-6 text-primary-200" />
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Privacy Policy
+              Privacy Policy - Delhi AC Services
             </h1>
             <p className="text-xl text-primary-100">
               Your privacy is important to us. Learn how we collect, use, and protect your information.

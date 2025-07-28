@@ -12,6 +12,7 @@ import {
   MdSupport
 } from 'react-icons/md';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 import ContactForm from '../components/ContactForm';
 import FAQ from '../components/FAQ';
 
@@ -93,8 +94,58 @@ const Contact = () => {
     visible: { opacity: 1, y: 0 }
   };
 
+  // Contact page structured data
+  const contactStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage", 
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "Delhi AC Services",
+      "telephone": "+91-97737-54227",
+      "email": "info@delhiairconditioner.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shop no 789, Block k2, Tara Chand Colony, K-Block, Mahipalpur Village, Mahipalpur",
+        "addressLocality": "New Delhi",
+        "addressRegion": "Delhi",
+        "postalCode": "110037",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "28.5479990",
+        "longitude": "77.1218300"
+      },
+      "openingHours": [
+        "Mo-Su 09:00-20:00"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint", 
+          "telephone": "+91-97737-54227",
+          "contactType": "customer service",
+          "areaServed": "IN",
+          "availableLanguage": ["Hindi", "English"],
+          "hoursAvailable": "Mo-Su 00:00-23:59"
+        }
+      ],
+      "areaServed": [
+        "Mahipalpur", "Vasant Kunj", "Gurgaon", "South Delhi", "IGI Airport Area",
+        "Dwarka", "Vasant Vihar", "Hauz Khas", "Saket", "Greater Kailash",
+        "Lajpat Nagar", "Delhi Cantonment", "RK Puram", "Chanakyapuri"
+      ]
+    }
+  };
+
   return (
     <div className="bg-white">
+      <SEO 
+        title="Contact Delhi AC Services - 24/7 AC Repair & Service in Delhi NCR | Call +91-97737-54227"
+        description="Contact Delhi's best AC service provider for immediate AC repair, installation & maintenance. Available 24/7 across Delhi NCR. Call +91-97737-54227 or WhatsApp for emergency AC service in Mahipalpur, Vasant Kunj, Gurgaon, South Delhi & surrounding areas."
+        keywords="contact Delhi AC services, AC repair contact Delhi, emergency AC service contact, AC service phone number Delhi, WhatsApp AC repair Delhi, AC technician contact Delhi, 24/7 AC service Delhi, AC service Mahipalpur contact, AC repair Vasant Kunj contact, AC service Gurgaon contact"
+        url="/contact"
+        structuredData={contactStructuredData}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
         <div className="container mx-auto px-4">

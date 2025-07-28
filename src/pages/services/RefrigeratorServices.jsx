@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdArrowForward, MdCheckCircle, MdPhone, MdWhatsapp } from 'react-icons/md';
 import { FaTemperatureHigh } from 'react-icons/fa';
+import SEO from '../../components/SEO';
 
 const RefrigeratorServices = () => {
   const refrigeratorServices = [
@@ -76,8 +77,43 @@ const RefrigeratorServices = () => {
     }
   ];
 
+  // Refrigerator Services structured data
+  const refrigeratorServicesStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Refrigerator & Fridge Repair Services in Delhi",
+    "description": "Professional refrigerator and fridge repair, gas filling, and maintenance services in Delhi NCR. Expert technicians for all brands with same-day service.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Delhi AC Services"
+    },
+    "areaServed": "Delhi NCR",
+    "serviceType": "Refrigerator Service",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Refrigerator Services Delhi",
+      "itemListElement": refrigeratorServices.map(service => ({
+        "@type": "Service",
+        "name": service.name,
+        "description": service.description,
+        "offers": {
+          "@type": "Offer",
+          "price": service.price,
+          "priceCurrency": "INR"
+        }
+      }))
+    }
+  };
+
   return (
     <div className="bg-white">
+      <SEO 
+        title="Refrigerator & Fridge Repair Service in Delhi - Gas Filling & Maintenance | Delhi AC Services"
+        description="Professional refrigerator and fridge repair, gas filling, and maintenance services in Delhi NCR. Expert service for all brands: LG, Samsung, Whirlpool, Godrej, Haier. Same-day service, genuine parts. Call +91-97737-54227 for refrigerator repair."
+        keywords="refrigerator repair Delhi, fridge repair Delhi, refrigerator gas filling Delhi, fridge service Delhi, refrigerator maintenance Delhi, LG refrigerator repair Delhi, Samsung fridge repair Delhi, Whirlpool refrigerator service Delhi, Godrej fridge repair Delhi, double door refrigerator repair Delhi, single door fridge repair Delhi, commercial refrigerator service Delhi"
+        url="/services/refrigerator-services"
+        structuredData={refrigeratorServicesStructuredData}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-green-600 to-green-700 py-20 text-white">
         <div className="container mx-auto px-4">
@@ -85,7 +121,7 @@ const RefrigeratorServices = () => {
             <div className="bg-white/10 p-4 inline-block rounded-full mb-6">
               <FaTemperatureHigh size={40} className="text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Refrigerator Services & Repair</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Refrigerator & Fridge Repair Service in Delhi</h1>
             <p className="text-xl text-green-100 mb-8">
               Expert refrigerator repair, gas filling, and maintenance services for all brands and models
             </p>

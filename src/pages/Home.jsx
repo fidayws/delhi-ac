@@ -17,6 +17,7 @@ import {
 } from 'react-icons/md';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import GoogleReviews from '../components/GoogleReviews';
 import ServiceCategories from '../components/ServiceCategories';
 import ContactForm from '../components/ContactForm';
@@ -32,14 +33,75 @@ const Home = () => {
     "Same Day Service Available"
   ];
 
+  // Home page structured data
+  const homeStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Delhi AC Services",
+    "alternateName": "Delhi Air Conditioner Services",
+    "url": "https://delhiacservices.com",
+    "logo": "https://res.cloudinary.com/dw1sh368y/image/upload/v1753519612/266_bgmeao.jpg",
+    "description": "Delhi's most trusted AC service provider offering professional air conditioner installation, repair, maintenance, and emergency services in Delhi NCR. Available 24/7 with certified technicians.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Delhi",
+      "addressRegion": "Delhi",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-97737-54227",
+      "contactType": "customer service",
+      "areaServed": "IN",
+      "availableLanguage": ["Hindi", "English"]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "1000+",
+      "bestRating": "5"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AC Services Delhi",
+      "itemListElement": [
+        {
+          "@type": "Service",
+          "name": "Emergency AC Repair Delhi",
+          "serviceType": "AC Repair",
+          "areaServed": "Delhi NCR"
+        },
+        {
+          "@type": "Service", 
+          "name": "Split AC Installation Delhi",
+          "serviceType": "AC Installation",
+          "areaServed": "Delhi NCR"
+        },
+        {
+          "@type": "Service",
+          "name": "Window AC Service Delhi", 
+          "serviceType": "AC Maintenance",
+          "areaServed": "Delhi NCR"
+        }
+      ]
+    }
+  };
+
   return (
     <div className="bg-white min-h-screen overflow-x-hidden">
+      <SEO 
+        title="Delhi AC Services - Best AC Repair & Installation Service in Delhi | 24/7 Emergency AC Service"
+        description="Delhi's #1 AC service provider offering professional air conditioner repair, installation, maintenance & emergency services in Delhi NCR. 20+ years experience, certified technicians, same day service. Call +91-97737-54227 for immediate AC repair in Delhi."
+        keywords="AC repair Delhi, air conditioner service Delhi, AC installation Delhi, emergency AC repair Delhi, split AC repair Delhi, window AC service Delhi, AC maintenance Delhi, commercial AC service Delhi, residential AC repair Delhi, AC gas refilling Delhi, AC cleaning service Delhi, 24/7 AC repair Delhi, best AC service Delhi, affordable AC repair Delhi, AC technician Delhi, HVAC services Delhi, central AC repair Delhi, ducted AC service Delhi, AC AMC Delhi, branded AC repair Delhi"
+        url="/"
+        structuredData={homeStructuredData}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100vh] flex items-center overflow-hidden pt-[80px] sm:pt-[100px]">
         <div className="absolute inset-0 z-0">
           <img
             src="https://res.cloudinary.com/dw1sh368y/image/upload/v1753519612/266_bgmeao.jpg"
-            alt="AC Service"
+            alt="Professional AC repair and installation service in Delhi - Expert technicians working on air conditioner maintenance"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/70 to-blue-900/50" />
@@ -73,9 +135,9 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Expert AC Services<br />
+              Best AC Repair & Installation<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                For Your Comfort
+                Service in Delhi
               </span>
             </motion.h1>
             
@@ -85,8 +147,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Professional AC installation, repair, and maintenance services in Delhi.
-              Available 24/7 for all your cooling needs with certified technicians.
+              Delhi's most trusted AC service provider offering emergency AC repair, split AC installation, window AC service, and preventive AC maintenance across Delhi NCR. Licensed technicians available 24/7 for immediate air conditioner repair and installation with same-day service guarantee.
             </motion.p>
 
             <motion.div 
@@ -221,7 +282,7 @@ const Home = () => {
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=2338&auto=format&fit=crop"
-                  alt="AC Service Team"
+                  alt="Professional AC technician team providing expert air conditioner repair and installation services in Delhi"
                   className="w-full h-[400px] object-cover transform hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
