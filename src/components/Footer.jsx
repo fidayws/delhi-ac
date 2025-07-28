@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const services = [
-    { name: 'AC Installation', path: '/services/ac-installation' },
-    { name: 'AC Repair', path: '/services/ac-repair' },
-    { name: 'AC Maintenance', path: '/services/ac-maintenance' },
-    { name: 'AMC Services', path: '/services/amc-services' },
-    { name: 'Gas Filling', path: '/services/ac-repair' },
-    { name: 'AC Cleaning', path: '/services/ac-maintenance' },
+    { name: 'AC Installation', path: '#' },
+    { name: 'AC Repair', path: '#' },
+    { name: 'AC Maintenance', path: '#' },
+    { name: 'AMC Services', path: '#' },
+    { name: 'Gas Filling', path: '#' },
+    { name: 'AC Cleaning', path: '#' },
   ];
 
   const locations = [
@@ -146,8 +146,8 @@ const Footer = () => {
                 <MdEmail className="text-primary-400 mt-1 flex-shrink-0" size={18} />
                 <div className="text-center sm:text-left">
                   <p className="text-xs sm:text-sm text-gray-400">Email Us</p>
-                  <a href="mailto:info@delhiairconditioner.com" className="text-white hover:text-primary-400 transition-colors text-sm sm:text-base break-all">
-                    info@delhiairconditioner.com
+                  <a href="mailto:info@delhiacexpert.in" className="text-white hover:text-primary-400 transition-colors text-sm sm:text-base break-all">
+                    info@delhiacexpert.in
                   </a>
                 </div>
               </div>
@@ -194,6 +194,14 @@ const Footer = () => {
                 Careers
               </Link>
             </div>
+            <a
+            href="https://yaamwebsolutions.com"
+            className="text-gray-400 hover:text-[#4169E1] text-sm transition-colors duration-300 block"
+            target="_blank"
+            rel="noopener"
+          >
+            Crafted with ❤️ by <span className="font-semibold">Yaam Web Solutions</span> – Your Partner in Digital Excellence
+          </a>
           </div>
         </div>
       </div>

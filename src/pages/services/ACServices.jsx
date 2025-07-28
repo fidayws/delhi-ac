@@ -17,7 +17,7 @@ const ACServices = () => {
         'Gas pressure inspection'
       ],
       price: 'Starting at ₹599',
-      image: '/images/ac-service.jpg',
+      image: 'https://res.cloudinary.com/dw1sh368y/image/upload/v1753697986/12516_tz7o9a.jpg',
       path: '/services/ac-service'
     },
     {
@@ -237,9 +237,18 @@ const ACServices = () => {
                 key={service.id}
                 className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all overflow-hidden"
               >
-                <div className="h-48 bg-gray-200 relative">
-                  {/* This would be replaced with actual images */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-blue-100">
+                <div className="h-48 bg-gray-200 relative overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback to icon if image fails to load
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-blue-100" style={{display: 'none'}}>
                     <MdAcUnit size={60} className="text-blue-500" />
                   </div>
                 </div>

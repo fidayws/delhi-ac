@@ -37,8 +37,8 @@ const Contact = () => {
     {
       icon: <MdEmail size={28} />,
       title: "Email",
-      content: "info@delhiairconditioner.com",
-      link: "mailto:info@delhiairconditioner.com",
+      content: "#",
+      link: "#",
       description: "Send us your queries anytime"
     },
     {
@@ -102,7 +102,7 @@ const Contact = () => {
       "@type": "LocalBusiness",
       "name": "Delhi AC Services",
       "telephone": "+91-97737-54227",
-      "email": "info@delhiairconditioner.com",
+      "email": "info@delhiacexpert.in",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Shop no 789, Block k2, Tara Chand Colony, K-Block, Mahipalpur Village, Mahipalpur",
