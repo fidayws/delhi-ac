@@ -185,12 +185,12 @@ const RefrigeratorServices = () => {
                   </div>
                   <div className="flex justify-between items-center pt-4 border-t border-gray-100">
                     <span className="text-green-600 font-bold">{service.price}</span>
-                    <Link 
+                    {/* <Link 
                       to={service.path} 
                       className="text-green-600 font-medium hover:text-green-700 flex items-center"
                     >
                       View Details <MdArrowForward className="ml-1" />
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>

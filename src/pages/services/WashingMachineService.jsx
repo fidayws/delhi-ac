@@ -169,12 +169,12 @@ const WashingMachineServices = () => {
                   </div>
                   <div className="flex justify-between items-center pt-4 border-t border-gray-100">
                     <span className="text-purple-600 font-bold">{service.price}</span>
-                    <Link 
+                    {/* <Link 
                       to={service.path} 
                       className="text-purple-600 font-medium hover:text-purple-700 flex items-center"
                     >
                       View Details <MdArrowForward className="ml-1" />
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>

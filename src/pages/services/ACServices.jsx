@@ -237,7 +237,7 @@ const ACServices = () => {
                 key={service.id}
                 className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all overflow-hidden"
               >
-                <div className="h-48 bg-gray-200 relative overflow-hidden">
+                 <div className="h-48 bg-gray-200 relative overflow-hidden">
                   <img 
                     src={service.image} 
                     alt={service.name}
@@ -268,12 +268,12 @@ const ACServices = () => {
                   </div>
                   <div className="flex justify-between items-center pt-4 border-t border-gray-100">
                     <span className="text-primary-600 font-bold">{service.price}</span>
-                    <Link 
+                    {/* <Link 
                       to={service.path} 
                       className="text-blue-600 font-medium hover:text-blue-700 flex items-center"
                     >
                       View Details <MdArrowForward className="ml-1" />
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>

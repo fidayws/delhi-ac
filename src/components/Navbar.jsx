@@ -41,32 +41,32 @@ const Navbar = () => {
 
   const services = [
     // Air Conditioner Services
-    { name: "AC Service", path: "#", category: "AC Services" },
-    { name: "AC Gas Fill", path: "#", category: "AC Services" },
-    { name: "AC Fitting", path: "#", category: "AC Services" },
-    { name: "AC Repair", path: "#", category: "AC Services" },
-    { name: "AC Installation", path: "#", category: "AC Services" },
-    { name: "AC Maintenance", path: "#", category: "AC Services" },
-    { name: "AMC Services", path: "#", category: "AC Services" },
-    { name: "Air Conditioner Parts (All Company)", path: "#", category: "AC Services" },
+    { name: "AC Service", path: "/services/ac-services", category: "AC Services" },
+    { name: "AC Gas Fill", path: "/services/ac-services", category: "AC Services" },
+    { name: "AC Fitting", path: "/services/ac-services", category: "AC Services" },
+    { name: "AC Repair", path: "/services/ac-services", category: "AC Services" },
+    { name: "AC Installation", path: "/services/ac-services", category: "AC Services" },
+    { name: "AC Maintenance", path: "/services/ac-services", category: "AC Services" },
+    { name: "AMC Services", path: "/services/ac-services", category: "AC Services" },
+    { name: "Air Conditioner Parts (All Company)", path: "/services/ac-services", category: "AC Services" },
     
     // Refrigerator Services
-    { name: "Fridge Repair", path: "#", category: "Refrigerator" },
-    { name: "Refrigerator Gas Fill", path: "#", category: "Refrigerator" },
-    { name: "Refrigerator Repair", path: "#", category: "Refrigerator" },
+    { name: "Fridge Repair", path: "/services/refrigerator-services", category: "Refrigerator" },
+    { name: "Refrigerator Gas Fill", path: "/services/refrigerator-services", category: "Refrigerator" },
+    { name: "Refrigerator Repair", path: "/services/refrigerator-services", category: "Refrigerator" },
     
     // Water Services
-    { name: "Water Cooler Gas Fill", path: "#", category: "Water Services" },
-    { name: "Water Cooler Repair", path: "#", category: "Water Services" },
-    { name: "Water Dispenser Repair & Gas", path: "#", category: "Water Services" },
+    { name: "Water Cooler Gas Fill", path: "/services/water-services", category: "Water Services" },
+    { name: "Water Cooler Repair", path: "/services/water-services", category: "Water Services" },
+    { name: "Water Dispenser Repair & Gas", path: "/services/water-services", category: "Water Services" },
     
     // Kitchen Appliances
-    { name: "Oven Repair", path: "#", category: "Kitchen" },
-    { name: "Microwave Oven Repair", path: "#", category: "Kitchen" },
+    { name: "Oven Repair", path: "/services/kitchen-services", category: "Kitchen" },
+    { name: "Microwave Oven Repair", path: "/services/kitchen-services", category: "Kitchen" },
     
     // Washing Machine Services
-    { name: "Semi Washing Machine Repair & Service", path: "#", category: "Washing Machine" },
-    { name: "Fully Automatic Washing Machine Repair & Service", path: "#", category: "Washing Machine" },
+    { name: "Semi Washing Machine Repair & Service", path: "/services/washing-machine-services", category: "Washing Machine" },
+    { name: "Fully Automatic Washing Machine Repair & Service", path: "/services/washing-machine-services", category: "Washing Machine" },
   ];
 
   // Group services by category
