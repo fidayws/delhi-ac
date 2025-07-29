@@ -41,32 +41,122 @@ const Navbar = () => {
 
   const services = [
     // Air Conditioner Services
-    { name: "AC Service", path: "/services/ac-services", category: "AC Services", key: "ac-service" },
-    { name: "AC Gas Fill", path: "/services/ac-services", category: "AC Services", key: "ac-gas-fill" },
-    { name: "AC Fitting", path: "/services/ac-services", category: "AC Services", key: "ac-fitting" },
-    { name: "AC Repair", path: "/services/ac-services", category: "AC Services", key: "ac-repair" },
-    { name: "AC Installation", path: "/services/ac-services", category: "AC Services", key: "ac-installation" },
-    { name: "AC Maintenance", path: "/services/ac-services", category: "AC Services",  key: "ac-maintenance" },
-    { name: "AMC Services", path: "/services/ac-services", category: "AC Services", key: "amc-services" },
-    { name: "Air Conditioner Parts (All Company)", path: "/services/ac-services", category: "AC Services", key: "ac-parts" },
-    
+    {
+      name: "AC Service",
+      path: "/services/ac-services",
+      category: "AC Services",
+      key: "ac-service",
+    },
+    {
+      name: "AC Gas Fill",
+      path: "/services/ac-services",
+      category: "AC Services",
+      key: "ac-gas-fill",
+    },
+    {
+      name: "AC Fitting",
+      path: "/services/ac-services",
+      category: "AC Services",
+      key: "ac-fitting",
+    },
+    {
+      name: "AC Repair",
+      path: "/services/ac-services",
+      category: "AC Services",
+      key: "ac-repair",
+    },
+    {
+      name: "AC Installation",
+      path: "/services/ac-services",
+      category: "AC Services",
+      key: "ac-installation",
+    },
+    {
+      name: "AC Maintenance",
+      path: "/services/ac-services",
+      category: "AC Services",
+      key: "ac-maintenance",
+    },
+    {
+      name: "AMC Services",
+      path: "/services/ac-services",
+      category: "AC Services",
+      key: "amc-services",
+    },
+    {
+      name: "Air Conditioner Parts (All Company)",
+      path: "/services/ac-services",
+      category: "AC Services",
+      key: "ac-parts",
+    },
+
     // Refrigerator Services
-    { name: "Fridge Repair", path: "/services/refrigerator-services", category: "Refrigerator", key: "fridge-repair" },
-    { name: "Refrigerator Gas Fill", path: "/services/refrigerator-services", category: "Refrigerator", key: "refrigerator-gas-fill" },
-    { name: "Refrigerator Repair", path: "/services/refrigerator-services", category: "Refrigerator", key: "refrigerator-repair" },
-    
+    {
+      name: "Fridge Repair",
+      path: "/services/refrigerator-services",
+      category: "Refrigerator",
+      key: "fridge-repair",
+    },
+    {
+      name: "Refrigerator Gas Fill",
+      path: "/services/refrigerator-services",
+      category: "Refrigerator",
+      key: "refrigerator-gas-fill",
+    },
+    {
+      name: "Refrigerator Repair",
+      path: "/services/refrigerator-services",
+      category: "Refrigerator",
+      key: "refrigerator-repair",
+    },
+
     // Water Services
-    { name: "Water Cooler Gas Fill", path: "/services/water-services", category: "Water Services", key: "water-cooler-gas-fill" },
-    { name: "Water Cooler Repair", path: "/services/water-services", category: "Water Services", key: "water-cooler-repair" },
-    { name: "Water Dispenser Repair & Gas", path: "/services/water-services", category: "Water Services", key: "water-dispenser-repair" },
-    
+    {
+      name: "Water Cooler Gas Fill",
+      path: "/services/water-services",
+      category: "Water Services",
+      key: "water-cooler-gas-fill",
+    },
+    {
+      name: "Water Cooler Repair",
+      path: "/services/water-services",
+      category: "Water Services",
+      key: "water-cooler-repair",
+    },
+    {
+      name: "Water Dispenser Repair & Gas",
+      path: "/services/water-services",
+      category: "Water Services",
+      key: "water-dispenser-repair",
+    },
+
     // Kitchen Appliances
-    { name: "Oven Repair", path: "/services/kitchen-services", category: "Kitchen", key: "oven-repair" },
-    { name: "Microwave Oven Repair", path: "/services/kitchen-services", category: "Kitchen", key: "microwave-oven-repair" },
-    
+    {
+      name: "Oven Repair",
+      path: "/services/kitchen-services",
+      category: "Kitchen",
+      key: "oven-repair",
+    },
+    {
+      name: "Microwave Oven Repair",
+      path: "/services/kitchen-services",
+      category: "Kitchen",
+      key: "microwave-oven-repair",
+    },
+
     // Washing Machine Services
-    { name: "Semi Washing Machine Repair & Service", path: "/services/washing-machine-services", category: "Washing Machine", key: "semi-washing-machine-repair" },
-    { name: "Fully Automatic Washing Machine Repair & Service", path: "/services/washing-machine-services", category: "Washing Machine", key: "fully-automatic-washing-machine-repair" },
+    {
+      name: "Semi Washing Machine Repair & Service",
+      path: "/services/washing-machine-services",
+      category: "Washing Machine",
+      key: "semi-washing-machine-repair",
+    },
+    {
+      name: "Fully Automatic Washing Machine Repair & Service",
+      path: "/services/washing-machine-services",
+      category: "Washing Machine",
+      key: "fully-automatic-washing-machine-repair",
+    },
   ];
 
   // Group services by category
@@ -100,12 +190,15 @@ const Navbar = () => {
       }`}
     >
       {/* Top Bar */}
-      <div className={`bg-gray-900 text-white py-1.5 sm:py-2 text-sm`}>
+      <div className={`bg-gray-900 text-white py-1.5 sm:py-1 text-sm`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-2">
             <div className="flex items-center text-center sm:text-left w-full sm:w-auto">
-              <MdLocationPin size={14} className="mr-1 sm:mr-2 hidden sm:block" />
-              <span className="text-xs sm:text-sm truncate">
+              <MdLocationPin
+                size={14}
+                className="mr-1 sm:mr-2 hidden sm:block"
+              />
+              <span className="hidden sm:inline text-xs sm:text-sm truncate">
                 Shop no 789, Block k2, Tara Chand Colony, Mahipalpur
               </span>
             </div>
@@ -143,7 +236,9 @@ const Navbar = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
               <div className={`bg-blue-600 p-1.5 sm:p-2 rounded-lg`}>
-                <span className="font-bold text-lg sm:text-xl text-white">AC</span>
+                <span className="font-bold text-lg sm:text-xl text-white">
+                  AC
+                </span>
               </div>
               <div className="min-w-0">
                 <h1
@@ -182,7 +277,7 @@ const Navbar = () => {
 
               {/* Services Dropdown */}
               <div
-                className="relative static"
+                className="relative "
                 onMouseEnter={handleMouseEnterServices}
                 onMouseLeave={handleMouseLeaveServices}
               >
@@ -197,7 +292,10 @@ const Navbar = () => {
                   <HiChevronDown size={16} />
                 </button>
                 {isServicesOpen && (
-                  <div className="fixed left-0 right-0 mt-2 bg-white shadow-2xl border border-gray-100 py-4 z-50 mx-auto" style={{top: "auto"}}>
+                  <div
+                    className="fixed left-0 right-0 mt-2 bg-white shadow-2xl border border-gray-100 py-2 z-50 mx-auto"
+                    style={{ top: "auto" }}
+                  >
                     <div className="container mx-auto px-4 max-h-[80vh] overflow-y-auto">
                       <Link
                         to="/services"
@@ -206,27 +304,29 @@ const Navbar = () => {
                       >
                         All Services
                       </Link>
-                      
+
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                        {Object.entries(servicesByCategory).map(([category, categoryServices]) => (
-                          <div key={category} className="space-y-2 min-w-0">
-                            <h3 className="font-bold text-blue-600 text-sm uppercase tracking-wide border-b-2 border-blue-300 pb-2 text-left whitespace-nowrap">
-                              {category}
-                            </h3>
-                            <div className="space-y-1">
-                              {categoryServices.map((service) => (
-                                <Link
-                                  key={service.key}
-                                  to={service.path}
-                                  className="block px-2 py-1.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors rounded-md"
-                                  onClick={() => setIsServicesOpen(false)}
-                                >
-                                  {service.name}
-                                </Link>
-                              ))}
+                        {Object.entries(servicesByCategory).map(
+                          ([category, categoryServices]) => (
+                            <div key={category} className="space-y-2 min-w-0">
+                              <h3 className="font-bold text-blue-600 text-sm uppercase tracking-wide border-b-2 border-blue-300 pb-2 text-left whitespace-nowrap">
+                                {category}
+                              </h3>
+                              <div className="space-y-1">
+                                {categoryServices.map((service) => (
+                                  <Link
+                                    key={service.key}
+                                    to={service.path}
+                                    className="block px-2 py-1.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors rounded-md"
+                                    onClick={() => setIsServicesOpen(false)}
+                                  >
+                                    {service.name}
+                                  </Link>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          )
+                        )}
                       </div>
                     </div>
                   </div>
@@ -272,7 +372,9 @@ const Navbar = () => {
                 }`}
               >
                 <MdPhone size={18} />
-                <span className="font-semibold text-sm sm:text-base">Call Now</span>
+                <span className="font-semibold text-sm sm:text-base">
+                  Call Now
+                </span>
               </a>
             </div>
 
@@ -297,9 +399,11 @@ const Navbar = () => {
           className={`md:hidden transition-all duration-300 overflow-hidden bg-white shadow-lg ${
             isOpen ? "h-auto" : "h-0"
           }`}
-          style={{ maxHeight: isOpen ? (isMobileServicesOpen ? '70vh' : '50vh') : '0' }}
+          style={{
+            maxHeight: isOpen ? (isMobileServicesOpen ? "70vh" : "50vh") : "0",
+          }}
         >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 overflow-y-auto">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2 overflow-y-auto">
             <div className="flex flex-col space-y-4">
               <Link
                 to="/"
@@ -326,10 +430,12 @@ const Navbar = () => {
                     }`}
                   />
                 </button>
-                
-                <div className={`overflow-hidden transition-all duration-300 ${
-                  isMobileServicesOpen ? "max-h-[45vh] pt-2" : "max-h-0"
-                }`}>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    isMobileServicesOpen ? "max-h-[45vh] pt-2" : "max-h-0"
+                  }`}
+                >
                   <Link
                     to="/services"
                     className="block py-2 px-3 mb-2 bg-gray-50 rounded font-medium text-blue-600"
@@ -337,25 +443,35 @@ const Navbar = () => {
                   >
                     View All Services
                   </Link>
-                  
-                  <div className="space-y-3 pl-2 overflow-y-auto pb-4" style={{ maxHeight: '40vh' }}>
-                    {Object.entries(servicesByCategory).map(([category, categoryServices]) => (
-                      <div key={category} className="space-y-1 pb-2 border-b border-gray-100 last:border-0">
-                        <h4 className="font-medium text-blue-600 text-sm">{category}</h4>
-                        <div className="pl-2 space-y-1">
-                          {categoryServices.map((service) => (
-                            <Link
-                              key={service.key}
-                              to={service.path}
-                              className="block text-gray-600 hover:text-blue-600 text-sm py-1"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {service.name}
-                            </Link>
-                          ))}
+
+                  <div
+                    className="space-y-3 pl-2 overflow-y-auto pb-4"
+                    style={{ maxHeight: "40vh" }}
+                  >
+                    {Object.entries(servicesByCategory).map(
+                      ([category, categoryServices]) => (
+                        <div
+                          key={category}
+                          className="space-y-1 pb-2 border-b border-gray-100 last:border-0"
+                        >
+                          <h4 className="font-medium text-blue-600 text-sm">
+                            {category}
+                          </h4>
+                          <div className="pl-2 space-y-1">
+                            {categoryServices.map((service) => (
+                              <Link
+                                key={service.key}
+                                to={service.path}
+                                className="block text-gray-600 hover:text-blue-600 text-sm py-1"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                {service.name}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      )
+                    )}
                   </div>
                 </div>
               </div>
