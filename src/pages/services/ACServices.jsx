@@ -1,6 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MdAcUnit, MdArrowForward, MdCheckCircle, MdPhone, MdWhatsapp } from 'react-icons/md';
+import { 
+  MdAcUnit, 
+  MdArrowForward, 
+  MdCheckCircle, 
+  MdPhone, 
+  MdWhatsapp, 
+  MdBuild, 
+  MdSettings, 
+  MdInstallDesktop, 
+  MdHandyman, 
+  MdCalendarToday,
+  MdInventory
+} from 'react-icons/md';
+import { FaTools, FaGasPump } from 'react-icons/fa';
 import SEO from '../../components/SEO';
 
 const ACServices = () => {
@@ -18,6 +31,8 @@ const ACServices = () => {
       ],
       price: 'Starting at ₹599',
       image: 'https://res.cloudinary.com/dw1sh368y/image/upload/v1753697986/12516_tz7o9a.jpg',
+      icon: MdAcUnit,
+      iconColor: 'text-blue-500',
       path: '/services/ac-service'
     },
     {
@@ -32,7 +47,8 @@ const ACServices = () => {
         'Cooling efficiency optimization'
       ],
       price: 'Starting at ₹1200',
-      image: '/images/ac-gas-fill.jpg',
+      icon: FaGasPump,
+      iconColor: 'text-green-500',
       path: '/services/ac-gas-fill'
     },
     {
@@ -47,7 +63,8 @@ const ACServices = () => {
         'Post-installation performance check'
       ],
       price: 'Starting at ₹1500',
-      image: '/images/ac-fitting.jpg',
+      icon: MdInstallDesktop,
+      iconColor: 'text-purple-500',
       path: '/services/ac-fitting'
     },
     {
@@ -62,7 +79,8 @@ const ACServices = () => {
         'Warranty on repairs'
       ],
       price: 'Starting at ₹499',
-      image: '/images/ac-repair.jpg',
+      icon: MdBuild,
+      iconColor: 'text-orange-500',
       path: '/services/ac-repair'
     },
     {
@@ -77,7 +95,8 @@ const ACServices = () => {
         'User operation guidance'
       ],
       price: 'Starting at ₹2000',
-      image: '/images/ac-installation.jpg',
+      icon: MdHandyman,
+      iconColor: 'text-indigo-500',
       path: '/services/ac-installation'
     },
     {
@@ -92,7 +111,8 @@ const ACServices = () => {
         'Preventative maintenance'
       ],
       price: 'Starting at ₹799',
-      image: '/images/ac-maintenance.jpg',
+      icon: MdSettings,
+      iconColor: 'text-yellow-500',
       path: '/services/ac-maintenance'
     },
     {
@@ -107,7 +127,8 @@ const ACServices = () => {
         'Preventative maintenance plan'
       ],
       price: 'Starting at ₹3999/year',
-      image: '/images/amc-services.jpg',
+      icon: MdCalendarToday,
+      iconColor: 'text-red-500',
       path: '/services/amc-services'
     },
     {
@@ -122,7 +143,8 @@ const ACServices = () => {
         'Professional installation available'
       ],
       price: 'Varies by part',
-      image: '/images/ac-parts.jpg',
+      icon: MdInventory,
+      iconColor: 'text-teal-500',
       path: '/services/ac-parts'
     }
   ];
@@ -237,20 +259,20 @@ const ACServices = () => {
                 key={service.id}
                 className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all overflow-hidden"
               >
-                 <div className="h-48 bg-gray-200 relative overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.name}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      // Fallback to icon if image fails to load
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-blue-100" style={{display: 'none'}}>
-                    <MdAcUnit size={60} className="text-blue-500" />
-                  </div>
+                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+                  {service.image && service.id === 'ac-service' ? (
+                    <img 
+                      src={service.image} 
+                      alt={service.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="bg-white rounded-full p-8 shadow-lg">
+                        <service.icon size={60} className={service.iconColor} />
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{service.name}</h3>

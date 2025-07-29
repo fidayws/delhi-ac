@@ -1,6 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MdArrowForward, MdCheckCircle, MdPhone, MdWhatsapp, MdWaterDrop, MdWater } from 'react-icons/md';
+import { 
+  MdArrowForward, 
+  MdCheckCircle, 
+  MdPhone, 
+  MdWhatsapp, 
+  MdWaterDrop, 
+  MdWater, 
+  MdBuild,
+  MdLocalDrink,
+  MdKitchen
+} from 'react-icons/md';
+import { FaGasPump, FaTools } from 'react-icons/fa';
 import SEO from '../../components/SEO';
 
 const WaterServices = () => {
@@ -17,7 +28,8 @@ const WaterServices = () => {
         'Safety inspection'
       ],
       price: 'Starting at ₹999',
-      image: '/images/water-cooler-gas.jpg',
+      icon: FaGasPump,
+      iconColor: 'text-blue-500',
       path: '/services/water-cooler-gas'
     },
     {
@@ -32,7 +44,8 @@ const WaterServices = () => {
         'Complete system optimization'
       ],
       price: 'Starting at ₹499',
-      image: '/images/water-cooler-repair.jpg',
+      icon: MdBuild,
+      iconColor: 'text-orange-500',
       path: '/services/water-cooler-repair'
     },
     {
@@ -47,7 +60,8 @@ const WaterServices = () => {
         'Sanitization and cleaning'
       ],
       price: 'Starting at ₹599',
-      image: '/images/water-dispenser.jpg',
+      icon: MdLocalDrink,
+      iconColor: 'text-cyan-500',
       path: '/services/water-dispenser'
     }
   ];
@@ -162,10 +176,11 @@ const WaterServices = () => {
                 key={service.id}
                 className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all overflow-hidden"
               >
-                <div className="h-48 bg-gray-200 relative">
-                  {/* This would be replaced with actual images */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-cyan-100">
-                    <MdWater size={60} className="text-cyan-500" />
+                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white rounded-full p-8 shadow-lg">
+                      <service.icon size={60} className={service.iconColor} />
+                    </div>
                   </div>
                 </div>
                 <div className="p-6">

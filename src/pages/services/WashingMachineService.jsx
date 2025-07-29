@@ -1,6 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MdArrowForward, MdCheckCircle, MdPhone, MdWhatsapp, MdLocalLaundryService } from 'react-icons/md';
+import { 
+  MdArrowForward, 
+  MdCheckCircle, 
+  MdPhone, 
+  MdWhatsapp, 
+  MdLocalLaundryService,
+  MdSettings 
+} from 'react-icons/md';
+import { GiWashingMachine } from 'react-icons/gi';
 import SEO from '../../components/SEO';
 
 const WashingMachineServices = () => {
@@ -17,7 +25,8 @@ const WashingMachineServices = () => {
         'Complete mechanical overhaul'
       ],
       price: 'Starting at ₹499',
-      image: '/images/semi-washing-machine.jpg',
+      icon: MdSettings,
+      iconColor: 'text-purple-500',
       path: '/services/semi-washing-machine'
     },
     {
@@ -32,7 +41,8 @@ const WashingMachineServices = () => {
         'Water inlet and drain pump repair'
       ],
       price: 'Starting at ₹699',
-      image: '/images/automatic-washing-machine.jpg',
+      icon: GiWashingMachine,
+      iconColor: 'text-indigo-500',
       path: '/services/automatic-washing-machine'
     }
   ];
@@ -147,10 +157,11 @@ const WashingMachineServices = () => {
                 key={service.id}
                 className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all overflow-hidden"
               >
-                <div className="h-48 bg-gray-200 relative">
-                  {/* This would be replaced with actual images */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-purple-100">
-                    <MdLocalLaundryService size={60} className="text-purple-500" />
+                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white rounded-full p-8 shadow-lg">
+                      <service.icon size={60} className={service.iconColor} />
+                    </div>
                   </div>
                 </div>
                 <div className="p-6">

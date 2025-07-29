@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MdArrowForward, MdCheckCircle, MdPhone, MdWhatsapp } from 'react-icons/md';
-import { FaTemperatureHigh } from 'react-icons/fa';
+import { 
+  MdArrowForward, 
+  MdCheckCircle, 
+  MdPhone, 
+  MdWhatsapp, 
+  MdBuild,
+  MdThermostat 
+} from 'react-icons/md';
+import { FaTemperatureHigh, FaSnowflake, FaGasPump } from 'react-icons/fa';
 import SEO from '../../components/SEO';
 
 const RefrigeratorServices = () => {
@@ -18,7 +25,8 @@ const RefrigeratorServices = () => {
         'Performance optimization'
       ],
       price: 'Starting at ₹499',
-      image: '/images/fridge-repair.jpg',
+      icon: MdBuild,
+      iconColor: 'text-blue-500',
       path: '/services/fridge-repair'
     },
     {
@@ -33,7 +41,8 @@ const RefrigeratorServices = () => {
         'Cooling efficiency check'
       ],
       price: 'Starting at ₹1200',
-      image: '/images/refrigerator-gas.jpg',
+      icon: FaGasPump,
+      iconColor: 'text-cyan-500',
       path: '/services/refrigerator-gas'
     },
     {
@@ -48,11 +57,11 @@ const RefrigeratorServices = () => {
         'Complete performance tuning'
       ],
       price: 'Starting at ₹599',
-      image: '/images/refrigerator-repair.jpg',
+      icon: FaSnowflake,
+      iconColor: 'text-green-500',
       path: '/services/refrigerator-repair'
     }
   ];
-
   const brands = [
     'LG', 'Samsung', 'Whirlpool', 'Godrej', 'Haier', 
     'Bosch', 'Electrolux', 'Panasonic', 'Hitachi', 'Kelvinator'
@@ -163,10 +172,11 @@ const RefrigeratorServices = () => {
                 key={service.id}
                 className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all overflow-hidden"
               >
-                <div className="h-48 bg-gray-200 relative">
-                  {/* This would be replaced with actual images */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-green-100">
-                    <FaTemperatureHigh size={60} className="text-green-500" />
+                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white rounded-full p-8 shadow-lg">
+                      <service.icon size={60} className={service.iconColor} />
+                    </div>
                   </div>
                 </div>
                 <div className="p-6">

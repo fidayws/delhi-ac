@@ -41,32 +41,32 @@ const Navbar = () => {
 
   const services = [
     // Air Conditioner Services
-    { name: "AC Service", path: "/services/ac-services", category: "AC Services" },
-    { name: "AC Gas Fill", path: "/services/ac-services", category: "AC Services" },
-    { name: "AC Fitting", path: "/services/ac-services", category: "AC Services" },
-    { name: "AC Repair", path: "/services/ac-services", category: "AC Services" },
-    { name: "AC Installation", path: "/services/ac-services", category: "AC Services" },
-    { name: "AC Maintenance", path: "/services/ac-services", category: "AC Services" },
-    { name: "AMC Services", path: "/services/ac-services", category: "AC Services" },
-    { name: "Air Conditioner Parts (All Company)", path: "/services/ac-services", category: "AC Services" },
+    { name: "AC Service", path: "/services/ac-services", category: "AC Services", key: "ac-service" },
+    { name: "AC Gas Fill", path: "/services/ac-services", category: "AC Services", key: "ac-gas-fill" },
+    { name: "AC Fitting", path: "/services/ac-services", category: "AC Services", key: "ac-fitting" },
+    { name: "AC Repair", path: "/services/ac-services", category: "AC Services", key: "ac-repair" },
+    { name: "AC Installation", path: "/services/ac-services", category: "AC Services", key: "ac-installation" },
+    { name: "AC Maintenance", path: "/services/ac-services", category: "AC Services",  key: "ac-maintenance" },
+    { name: "AMC Services", path: "/services/ac-services", category: "AC Services", key: "amc-services" },
+    { name: "Air Conditioner Parts (All Company)", path: "/services/ac-services", category: "AC Services", key: "ac-parts" },
     
     // Refrigerator Services
-    { name: "Fridge Repair", path: "/services/refrigerator-services", category: "Refrigerator" },
-    { name: "Refrigerator Gas Fill", path: "/services/refrigerator-services", category: "Refrigerator" },
-    { name: "Refrigerator Repair", path: "/services/refrigerator-services", category: "Refrigerator" },
+    { name: "Fridge Repair", path: "/services/refrigerator-services", category: "Refrigerator", key: "fridge-repair" },
+    { name: "Refrigerator Gas Fill", path: "/services/refrigerator-services", category: "Refrigerator", key: "refrigerator-gas-fill" },
+    { name: "Refrigerator Repair", path: "/services/refrigerator-services", category: "Refrigerator", key: "refrigerator-repair" },
     
     // Water Services
-    { name: "Water Cooler Gas Fill", path: "/services/water-services", category: "Water Services" },
-    { name: "Water Cooler Repair", path: "/services/water-services", category: "Water Services" },
-    { name: "Water Dispenser Repair & Gas", path: "/services/water-services", category: "Water Services" },
+    { name: "Water Cooler Gas Fill", path: "/services/water-services", category: "Water Services", key: "water-cooler-gas-fill" },
+    { name: "Water Cooler Repair", path: "/services/water-services", category: "Water Services", key: "water-cooler-repair" },
+    { name: "Water Dispenser Repair & Gas", path: "/services/water-services", category: "Water Services", key: "water-dispenser-repair" },
     
     // Kitchen Appliances
-    { name: "Oven Repair", path: "/services/kitchen-services", category: "Kitchen" },
-    { name: "Microwave Oven Repair", path: "/services/kitchen-services", category: "Kitchen" },
+    { name: "Oven Repair", path: "/services/kitchen-services", category: "Kitchen", key: "oven-repair" },
+    { name: "Microwave Oven Repair", path: "/services/kitchen-services", category: "Kitchen", key: "microwave-oven-repair" },
     
     // Washing Machine Services
-    { name: "Semi Washing Machine Repair & Service", path: "/services/washing-machine-services", category: "Washing Machine" },
-    { name: "Fully Automatic Washing Machine Repair & Service", path: "/services/washing-machine-services", category: "Washing Machine" },
+    { name: "Semi Washing Machine Repair & Service", path: "/services/washing-machine-services", category: "Washing Machine", key: "semi-washing-machine-repair" },
+    { name: "Fully Automatic Washing Machine Repair & Service", path: "/services/washing-machine-services", category: "Washing Machine", key: "fully-automatic-washing-machine-repair" },
   ];
 
   // Group services by category
@@ -216,7 +216,7 @@ const Navbar = () => {
                             <div className="space-y-1">
                               {categoryServices.map((service) => (
                                 <Link
-                                  key={service.path}
+                                  key={service.key}
                                   to={service.path}
                                   className="block px-2 py-1.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors rounded-md"
                                   onClick={() => setIsServicesOpen(false)}
@@ -345,7 +345,7 @@ const Navbar = () => {
                         <div className="pl-2 space-y-1">
                           {categoryServices.map((service) => (
                             <Link
-                              key={service.path}
+                              key={service.key}
                               to={service.path}
                               className="block text-gray-600 hover:text-blue-600 text-sm py-1"
                               onClick={() => setIsOpen(false)}

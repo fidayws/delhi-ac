@@ -1,6 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MdArrowForward, MdCheckCircle, MdPhone, MdWhatsapp, MdKitchen, MdOutlineKitchen } from 'react-icons/md';
+import { 
+  MdArrowForward, 
+  MdCheckCircle, 
+  MdPhone, 
+  MdWhatsapp, 
+  MdKitchen, 
+  MdOutlineKitchen,
+  MdMicrowave 
+} from 'react-icons/md';
+import { FaFire } from 'react-icons/fa';
 import SEO from '../../components/SEO';
 
 const KitchenServices = () => {
@@ -17,7 +26,8 @@ const KitchenServices = () => {
         'Gas system troubleshooting'
       ],
       price: 'Starting at ₹599',
-      image: '/images/oven-repair.jpg',
+      icon: FaFire,
+      iconColor: 'text-red-500',
       path: '/services/oven-repair'
     },
     {
@@ -32,7 +42,8 @@ const KitchenServices = () => {
         'Power supply repair'
       ],
       price: 'Starting at ₹499',
-      image: '/images/microwave-repair.jpg',
+      icon: MdMicrowave,
+      iconColor: 'text-orange-500',
       path: '/services/microwave-repair'
     }
   ];
@@ -147,10 +158,11 @@ const KitchenServices = () => {
                 key={service.id}
                 className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all overflow-hidden"
               >
-                <div className="h-48 bg-gray-200 relative">
-                  {/* This would be replaced with actual images */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-orange-100">
-                    <MdOutlineKitchen size={60} className="text-orange-500" />
+                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white rounded-full p-8 shadow-lg">
+                      <service.icon size={60} className={service.iconColor} />
+                    </div>
                   </div>
                 </div>
                 <div className="p-6">
