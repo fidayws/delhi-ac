@@ -157,9 +157,7 @@ const Footer = () => {
                 <div className="text-center sm:text-left">
                   <p className="text-xs sm:text-sm text-gray-400">Address</p>
                   <p className="text-white text-sm sm:text-base leading-tight">
-                    Shop no 789, Block k2, Tara Chand Colony,<br />
-                    K-Block, Mahipalpur Village,<br />
-                    Mahipalpur, New Delhi, Delhi 110037
+                  Shop no 789, Block k2, Tara Chand Colony, K-Block, Mahipalpur Village, Mahipalpur, <br />New Delhi, Delhi 110037
                   </p>
                 </div>
               </div>

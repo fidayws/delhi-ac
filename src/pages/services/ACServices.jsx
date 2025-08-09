@@ -46,7 +46,7 @@ const ACServices = () => {
         'Pressure check and balancing',
         'Cooling efficiency optimization'
       ],
-      price: 'Starting at ₹1200',
+      price: 'Starting at ₹2500',
       icon: FaGasPump,
       iconColor: 'text-green-500',
       path: '/services/ac-gas-fill'
@@ -94,7 +94,7 @@ const ACServices = () => {
         'System charging and testing',
         'User operation guidance'
       ],
-      price: 'Starting at ₹2000',
+      price: 'Starting at ₹1500',
       icon: MdHandyman,
       iconColor: 'text-indigo-500',
       path: '/services/ac-installation'
